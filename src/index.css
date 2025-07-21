@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 220 26% 14%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 39% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 39% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 261 83% 58%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 215 28% 17%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 142 76% 36%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 28% 17%;
+    --input: 215 28% 17%;
+    --ring: 261 83% 58%;
+
+    /* Custom cyber theme colors */
+    --cyber-blue: 218 100% 66%;
+    --cyber-purple: 261 83% 58%;
+    --cyber-green: 142 76% 36%;
+    --cyber-pink: 322 100% 64%;
+    --surface: 220 39% 11%;
+    --surface-hover: 220 26% 18%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--cyber-purple)), hsl(var(--cyber-blue)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--cyber-blue)), hsl(var(--cyber-green)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--cyber-purple)), hsl(var(--cyber-pink)));
+
+    /* Glows */
+    --glow-primary: 0 0 20px hsl(var(--cyber-purple) / 0.5);
+    --glow-accent: 0 0 20px hsl(var(--cyber-blue) / 0.5);
+    --glow-success: 0 0 20px hsl(var(--cyber-green) / 0.5);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', 'Poppins', sans-serif;
+  }
+}
+
+@layer components {
+  .cyber-glow {
+    box-shadow: var(--glow-primary);
+  }
+  
+  .cyber-glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+  
+  .cyber-glow-success {
+    box-shadow: var(--glow-success);
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+  
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .tech-grid {
+    background-image: 
+      linear-gradient(rgba(107, 114, 128, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(107, 114, 128, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .floating-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+
+  .slide-up {
+    animation: slide-up 0.6s ease-out;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 5px hsl(var(--cyber-purple) / 0.5); }
+  100% { box-shadow: 0 0 20px hsl(var(--cyber-purple) / 0.8), 0 0 30px hsl(var(--cyber-blue) / 0.4); }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
